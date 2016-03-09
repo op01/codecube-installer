@@ -1,7 +1,5 @@
 #!/bin/bash
 if git clone https://gitlab.com/panta/codecube.git 2> /dev/null; then
-    echo test
-    exit
     cd codecube/local
     mv .env.example .env
     composer install
