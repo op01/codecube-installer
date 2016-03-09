@@ -1,0 +1,14 @@
+#!/bin/bash
+if git clone https://gitlab.com/panta/codecube.git 2> /dev/null; then
+    echo test
+    exit
+    cd codecube/local
+    mv .env.example .env
+    composer install
+    php artisan migrate --seed
+    chmod -R 777 storage vendor
+    cd ../judge
+    mv mysql.php.example mysql.php
+    cd ..
+    chown -R www-data .
+fi
